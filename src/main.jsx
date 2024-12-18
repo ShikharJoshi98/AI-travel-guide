@@ -1,9 +1,10 @@
-import { StrictMode } from 'react'
+import React, { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import CreateTrip from './create-trip/index.jsx'
+import ViewTrip from './view-trip/[tripId]/index.jsx'
 import Header from './components/ui/custom/Header.jsx'
 import { Toaster } from './components/ui/sonner.jsx'
 import { GoogleOAuthProvider } from '@react-oauth/google'
@@ -17,6 +18,9 @@ const router = createBrowserRouter([
   {
      path: '/create-trip',
      element: <CreateTrip/>
+  }, {
+    path: '/view-trip/:tripId',
+    element: <ViewTrip/>
   }
 ])
 
