@@ -19,6 +19,7 @@ import axios from 'axios';
 import { db } from '../service/firebaseConfig';
 import { doc, setDoc } from 'firebase/firestore';
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -30,7 +31,7 @@ function CreateTrip() {
   const [formData, setFormData] = useState([]);
   const [openDialog, setOpenDialog] = useState(false);
   const [loading, setLoading] = useState(false);
-
+  const navigate = useNavigate();
   const handleInputChange = (name, value) => {
    
     setFormData({
@@ -58,6 +59,7 @@ function CreateTrip() {
       id:docId
     });
     setLoading(false);
+    navigate('/view-trip/' + docId)
   }
 
   const onGenerateTrip = async () => {
@@ -155,7 +157,7 @@ function CreateTrip() {
         ))}
        </div>
        </div>
-       <div className='my-6 flex justify-center '>
+       <div className='my-3 flex justify-center '>
           <Button
             disabled = {loading}
             onClick={onGenerateTrip} >
@@ -179,16 +181,12 @@ function CreateTrip() {
                   </div>
                 <h2 className='font-bold text-lg mt-4'>Sign in with Google</h2>
                 <p>Sign in to the App with Google authentication securely</p>
-                <Button className='w-full mt-5 flex items-center '
-                  
+                <Button className='w-full mt-5 flex items-center '                  
                   onClick={login}
-                >
-                  
+                >                  
                       <FcGoogle />
-                      Sign In With Google
-                   
-                  </Button>
-                    
+                      Sign In With Google                   
+                  </Button>                    
       </DialogDescription>
     </DialogHeader>
   </DialogContent>
