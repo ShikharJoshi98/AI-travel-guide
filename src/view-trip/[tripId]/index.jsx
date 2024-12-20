@@ -8,18 +8,19 @@ import Hotels from './components/Hotels';
 import PlacesToVisit from './components/PlacesToVisit';
 
 
+
 const ViewTrip = () => {
   const { tripId } = useParams();
-  const [trip, setTrip] = useState({});
+  
+  const [trip, setTrip] = useState([]);
   useEffect(() => {
-    if(tripId)
-{    GetTripData();
-}  },[tripId])
+    tripId&&GetTripData();  
+  }, [tripId])
   const GetTripData = async() => {
     const docRef = doc(db, 'AITrips', tripId);
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
-      console.log("DOcument:", docSnap.data());
+      console.log("Document:", docSnap.data());
       setTrip(docSnap.data());
       console.log(trip);
     }
@@ -30,7 +31,7 @@ const ViewTrip = () => {
   }
   return (
     
-    <div className='p-10 md:px-20 lg:px-44 xl:px-56'>
+    <div className='p-6 md:px-20 lg:px-44 xl:px-56'>
       <InfoSection trip={ trip} />
       <Hotels trip={trip} />
       <PlacesToVisit trip={trip} />
