@@ -42,7 +42,7 @@ function Header() {
   return (
     <div className='p-3 shadow-sm flex justify-between items-center px-5'>
         <div className='flex items-center gap-2'>
-        <img src="/public/logo.svg" alt="" className='h-14 w-12'/>
+        <img src="/logo.svg" alt="" className='h-14 w-12'/>
         <h2 className="text-[24px]  font-sans font-bold tracking-wide text-green-700">TravelGuide.AI</h2>
         </div>
       <div>
@@ -79,7 +79,7 @@ function Header() {
        
               <DialogDescription>
                 <div className='flex items-center gap-2'>
-                <img src='public/logo.svg' height={44} width={44} className='justify-center' />
+                <img src='/logo.svg' height={44} width={44} className='justify-center' />
                   <h2 className='text-[24px]  font-sans font-bold  text-green-700'>TravelGuide.AI</h2>
                   </div>
                 <h2 className='font-bold text-lg mt-4'>Sign in with Google</h2>
