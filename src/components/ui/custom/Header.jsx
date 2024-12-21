@@ -16,6 +16,7 @@ import {
 } from "../dialog";
 import axios from 'axios';
 import { FcGoogle } from 'react-icons/fc';
+import { Link } from 'react-router-dom';
 
 function Header() {
   const [openDialog, setOpenDialog] = useState(false);
@@ -48,9 +49,9 @@ function Header() {
       <div>
         {user ?
           <div className='flex items-center gap-3'>
-            <a href="/create-trip">
+            <Link to={"/create-trip"}>
               <Button variant="outline" className="rounded-full">+ Create Trip</Button>
-            </a>
+            </Link>
             <a href="/my-trips">
               <Button variant="outline" className="rounded-full">My Trips</Button>
               </a>
